@@ -1,0 +1,38 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "aKcXnVcL3xHz1BwEF0z3_"
+uri = "file://artifacts/garage-cafe/attached_assets/generated_images/merch_tshirt.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "JxZSl2VA45wzLernUq9A_"
+uri = "file://artifacts/garage-cafe/attached_assets/generated_images/merch_cap.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "DQPWvhCq2dnqmHQPEuann"
+uri = "file://artifacts/garage-cafe/attached_assets/generated_images/merch_mug.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "iT8F-QrKc3gF_jYaApAnC"
+uri = "file://artifacts/garage-cafe/attached_assets/generated_images/merch_tote.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "YjmXzmx0lPU1NjfWMJ0i5"
+uri = "file://artifacts/garage-cafe/attached_assets/generated_images/merch_hoodie.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "XHnfOkTjIHbEJOdEMnGgt"
+uri = "file://artifacts/garage-cafe/attached_assets/generated_images/merch_pins.png"
+type = "image"
+title = "generated_image"

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reserve a Table | The Garage Cafe</title>
+    <meta name="description" content="Reserve a table at The Garage Cafe with a premium reservation experience." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./reservation.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="ambient ambient-one"></div>
+      <div class="ambient ambient-two"></div>
+      <div class="ambient ambient-three"></div>
+      <div class="particle particle-one"></div>
+      <div class="particle particle-two"></div>
+      <div class="particle particle-three"></div>
+      <div class="smoke smoke-one"></div>
+      <div class="smoke smoke-two"></div>
+
+      <header class="hero">
+        <a href="./" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        <div class="hero-content">
+          <p class="eyebrow">Garage Cafe Reservation</p>
+          <h1>BOOK YOUR GARAGE TABLE</h1>
+          <h2>Reserve Your Spot</h2>
+          <p>Book your table and enjoy the Garage Cafe experience.</p>
+        </div>
+      </header>
+
+      <main class="card-wrap">
+        <section class="reservation-card" aria-labelledby="reservation-title">
+          <div class="card-glow"></div>
+          <div class="card-rim"></div>
+          <form id="reservationForm" novalidate>
+            <div class="field">
+              <label for="name"><span class="field-icon"><i class="fa-solid fa-user"></i></span>Your Name *</label>
+              <input id="name" name="name" type="text" placeholder="Enter your full name" required />
+              <div class="error-message" data-for="name"></div>
+            </div>
+
+            <div class="field">
+              <label for="phone"><span class="field-icon"><i class="fa-solid fa-phone"></i></span>Phone Number *</label>
+              <input id="phone" name="phone" type="tel" inputmode="numeric" placeholder="e.g. 9967850378" required />
+              <div class="error-message" data-for="phone"></div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="date"><span class="field-icon"><i class="fa-solid fa-calendar"></i></span>Date *</label>
+                <input id="date" name="date" type="date" required />
+                <div class="error-message" data-for="date"></div>
+              </div>
+
+              <div class="field">
+                <label for="time"><span class="field-icon"><i class="fa-solid fa-clock"></i></span>Time *</label>
+                <input id="time" name="time" type="time" required />
+                <div class="error-message" data-for="time"></div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="guests"><span class="field-icon"><i class="fa-solid fa-users"></i></span>Number of Guests *</label>
+              <select id="guests" name="guests" required>
+                <option value="">Select guests</option>
+                <option value="1 Guest">1 Guest</option>
+                <option value="2 Guests">2 Guests</option>
+                <option value="3 Guests">3 Guests</option>
+                <option value="4 Guests">4 Guests</option>
+                <option value="5 Guests">5 Guests</option>
+                <option value="6 Guests">6 Guests</option>
+                <option value="7–10 Guests">7–10 Guests</option>
+                <option value="More than 10">More than 10</option>
+              </select>
+              <div class="error-message" data-for="guests"></div>
+            </div>
+
+            <div class="field">
+              <label for="preference"><span class="field-icon"><i class="fa-solid fa-chair"></i></span>Table Preference</label>
+              <select id="preference" name="preference">
+                <option value="No Preference">No Preference</option>
+                <option value="Indoor Seating">Indoor Seating</option>
+                <option value="Outdoor / Garden">Outdoor / Garden</option>
+                <option value="Corner / Private">Corner / Private</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="request"><span class="field-icon"><i class="fa-solid fa-message"></i></span>Special Request (optional)</label>
+              <textarea
+                id="request"
+                name="request"
+                rows="4"
+                placeholder="Birthday celebration, dietary needs, or anything else..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Confirm Reservation</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="./script.js"></script>
+    <script src="./reservation.js"></script>
+  </body>
+</html>

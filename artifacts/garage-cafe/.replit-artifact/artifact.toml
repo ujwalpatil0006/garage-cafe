@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "The Garage Cafe"
+version = "1.0.0"
+id = "artifacts/garage-cafe"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23512
+
+[services.development]
+run = "pnpm --filter @workspace/garage-cafe run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/garage-cafe", "run", "build" ]
+publicDir = "artifacts/garage-cafe/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23512"
+BASE_PATH = "/"
