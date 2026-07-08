@@ -312,9 +312,9 @@ export default function Visit() {
 
               {/* CTA */}
               <FadeUp delay={0.3}>
-                <a href="https://wa.me/919967850378" target="_blank" rel="noopener noreferrer">
+                <a href="reservation.html?request=Birthday" rel="noopener noreferrer">
                   <button className="w-full bg-[#B8860B] hover:bg-[#8B6A0B] text-white font-['Montserrat'] font-semibold tracking-widest uppercase py-4 rounded-full transition-all hover:shadow-lg hover:shadow-[#B8860B]/30 hover:scale-105 text-sm">
-                    Book Your Birthday Now
+                    Reserve Birthday Table
                   </button>
                 </a>
               </FadeUp>

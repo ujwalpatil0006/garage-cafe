@@ -4,6 +4,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!form || !toast) return;
 
+  // Check for URL parameters to pre-fill form
+  const urlParams = new URLSearchParams(window.location.search);
+  const specialRequest = urlParams.get('request');
+  if (specialRequest) {
+    const requestField = document.getElementById('request');
+    if (requestField) {
+      requestField.value = specialRequest;
+    }
+  }
+
   const phoneNumber = "919967850378";
 
   const showToast = (message) => {

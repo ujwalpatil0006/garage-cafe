@@ -82,8 +82,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* CTA + Hamburger */}
             <div className="flex items-center gap-3">
               <a
-                href="/reservation.html"
-                target="_blank"
+                href="reservation.html"
                 rel="noopener noreferrer"
                 className="hidden md:inline-flex items-center justify-center rounded-full border border-[#B8860B]/50 bg-[#B8860B]/10 px-4 py-2 text-sm font-['Montserrat'] font-semibold uppercase tracking-[0.24em] text-[#F2D39A] transition-all duration-300 hover:bg-[#B8860B] hover:text-white"
               >
@@ -128,8 +127,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             ))}
             <div className="flex flex-col gap-3 mt-4">
               <a
-                href="/reservation.html"
-                target="_blank"
+                href="reservation.html"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 border border-[#B8860B]/50 text-[#B8860B] font-['Montserrat'] font-semibold tracking-wider py-3 rounded-full"
               >
