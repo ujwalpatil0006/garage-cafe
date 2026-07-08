@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { IMAGES } from "@/lib/assets";
-import { useCart } from "@/context/CartContext";
 
 function FadeUp({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
@@ -191,33 +190,7 @@ function VegIcon({ veg }: { veg?: boolean }) {
   );
 }
 
-function AddButton({ onAdd, onInc, onDec, qty }: { onAdd: () => void; onInc: () => void; onDec: () => void; qty: number }) {
-  if (qty === 0) {
-    return (
-      <button
-        onClick={onAdd}
-        className="flex-shrink-0 flex items-center gap-1 bg-[#B8860B]/15 hover:bg-[#B8860B]/30 border border-[#B8860B]/40 hover:border-[#B8860B] text-[#B8860B] font-['Montserrat'] font-semibold text-[10px] tracking-wider uppercase px-2.5 py-1.5 rounded-lg transition-all duration-200 hover:scale-105"
-      >
-        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
-        </svg>
-        Add
-      </button>
-    );
-  }
-  return (
-    <div className="flex-shrink-0 flex items-center gap-1.5 bg-[#B8860B]/15 border border-[#B8860B]/40 rounded-lg px-1.5 py-1">
-      <button onClick={onDec} className="w-5 h-5 rounded flex items-center justify-center text-[#B8860B] hover:bg-[#B8860B]/20 transition-colors font-bold text-sm">−</button>
-      <span className="text-white font-['Montserrat'] font-semibold text-xs w-4 text-center">{qty}</span>
-      <button onClick={onInc} className="w-5 h-5 rounded flex items-center justify-center bg-[#B8860B] hover:bg-[#8B6A0B] text-white transition-colors font-bold text-sm">+</button>
-    </div>
-  );
-}
-
-function MenuCard({ item, category }: { item: MenuItem; category: string }) {
-  const { addItem, updateQty, items } = useCart();
-  const cartItem = items.find((i) => i.name === item.name);
-  const qty = cartItem?.qty ?? 0;
+function MenuCard({ item }: { item: MenuItem }) {
   return (
     <div className="group flex items-start gap-3 p-4 bg-white/5 backdrop-blur-sm border border-white/8 hover:border-[#B8860B]/40 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#B8860B]/8">
       <VegIcon veg={item.veg} />
@@ -225,30 +198,15 @@ function MenuCard({ item, category }: { item: MenuItem; category: string }) {
         <h4 className="font-['Playfair_Display'] text-white font-bold text-sm leading-snug">{item.name}</h4>
         {item.desc && <p className="text-white/45 text-xs leading-relaxed mt-1">{item.desc}</p>}
       </div>
-      <AddButton
-        qty={qty}
-        onAdd={() => addItem({ name: item.name, desc: item.desc, veg: item.veg, category })}
-        onInc={() => updateQty(item.name, 1)}
-        onDec={() => updateQty(item.name, -1)}
-      />
     </div>
   );
 }
 
-function SimpleItemCard({ name, category }: { name: string; category: string }) {
-  const { addItem, updateQty, items } = useCart();
-  const cartItem = items.find((i) => i.name === name);
-  const qty = cartItem?.qty ?? 0;
+function SimpleItemCard({ name }: { name: string }) {
   return (
     <div className="flex items-center gap-3 p-3.5 bg-white/5 border border-white/8 hover:border-[#B8860B]/40 rounded-xl transition-all duration-300 hover:-translate-y-0.5 group">
       <div className="w-1.5 h-1.5 rounded-full bg-[#B8860B] flex-shrink-0 group-hover:scale-125 transition-transform" />
       <p className="text-white/80 text-sm font-['Poppins'] font-medium leading-snug flex-1">{name}</p>
-      <AddButton
-        qty={qty}
-        onAdd={() => addItem({ name, category })}
-        onInc={() => updateQty(name, 1)}
-        onDec={() => updateQty(name, -1)}
-      />
     </div>
   );
 }
@@ -388,7 +346,7 @@ export default function MenuPage() {
                 </div>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                   {section.items.map((item) => (
-                    <MenuCard key={item.name} item={item} category={section.name} />
+                    <MenuCard key={item.name} item={item} />
                   ))}
                 </div>
               </FadeUp>
@@ -424,7 +382,7 @@ export default function MenuPage() {
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {currentBev.items.map((item) => (
-                  <SimpleItemCard key={item} name={item} category={currentBev.name} />
+                  <SimpleItemCard key={item} name={item} />
                 ))}
               </div>
             </FadeUp>

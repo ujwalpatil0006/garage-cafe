@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { useCart } from "@/context/CartContext";
-import CartDrawer from "@/components/CartDrawer";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showTop, setShowTop] = useState(false);
   const [location] = useLocation();
-  const { totalCount, openCart } = useCart();
 
   useEffect(() => {
     const onScroll = () => {
@@ -82,7 +79,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               ))}
             </div>
 
-            {/* CTA + Cart + Hamburger */}
+            {/* CTA + Hamburger */}
             <div className="flex items-center gap-3">
               <a
                 href="/reservation.html"
@@ -92,22 +89,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               >
                 Reserve Table
               </a>
-
-              {/* Cart Button */}
-              <button
-                onClick={openCart}
-                className="relative flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#B8860B]/50 transition-all duration-300 hover:scale-105"
-                title="View Cart"
-              >
-                <svg className="w-5 h-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-                {totalCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] bg-[#B8860B] text-white text-[10px] font-['Montserrat'] font-bold rounded-full flex items-center justify-center px-1 shadow-lg">
-                    {totalCount > 99 ? "99+" : totalCount}
-                  </span>
-                )}
-              </button>
 
               {/* Order Now (desktop) */}
               <a
@@ -154,15 +135,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               >
                 Reserve Table
               </a>
-              <button
-                onClick={() => { openCart(); setMenuOpen(false); }}
-                className="flex-1 flex items-center justify-center gap-2 border border-[#B8860B]/50 text-[#B8860B] font-['Montserrat'] font-semibold tracking-wider py-3 rounded-full"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-                Cart {totalCount > 0 && `(${totalCount})`}
-              </button>
             </div>
             <div className="flex gap-3 mt-3">
               <a
@@ -180,9 +152,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         )}
       </nav>
-
-      {/* Cart Drawer */}
-      <CartDrawer />
 
       {/* Main Content */}
       <main>{children}</main>

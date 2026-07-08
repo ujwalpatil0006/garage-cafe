@@ -1,6 +1,14 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { IMAGES } from "@/lib/assets";
+import ImageCarousel from "@/components/ImageCarousel";
+
+import bdayImg1 from "@assets/visitus_sec_birthday_img/image_1782829019113.png";
+import bdayImg2 from "@assets/visitus_sec_birthday_img/image_1782829457426.png";
+import bdayImg3 from "@assets/visitus_sec_birthday_img/image_1782829475477.png";
+import bdayImg4 from "@assets/visitus_sec_birthday_img/WhatsApp Image 2026-07-05 at 16.27.11.jpeg";
+
+const birthdayImages = [bdayImg1, bdayImg2, bdayImg3, bdayImg4];
 
 function FadeUp({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
@@ -245,67 +253,20 @@ export default function Visit() {
           </FadeUp>
 
           <div className="grid lg:grid-cols-2 gap-8 items-start">
-              {/* Birthday photos */}
-              <div className="grid grid-cols-2 gap-3">
-                <FadeUp delay={0.1}>
-                  <motion.div
-                    whileHover={{ scale: 1.05, rotate: 1 }}
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 300, 
-                      damping: 20,
-                      y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-                    }}
-                    className="rounded-2xl overflow-hidden aspect-[3/4] relative group"
-                  >
-                     <img 
-                       src={IMAGES.birthday1} 
-                       alt="Birthday celebration" 
-                       className="w-full h-full object-cover object-top transition-all duration-700 group-hover:brightness-110" 
-                       loading="lazy" 
-                     />
-                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                     <motion.div
-                       initial={{ opacity: 0, scale: 0.8 }}
-                       whileInView={{ opacity: 1, scale: 1 }}
-                       transition={{ duration: 0.5, delay: 0.3 }}
-                       className="absolute top-3 right-3 bg-[#B8860B] text-white text-[10px] font-['Montserrat'] font-semibold tracking-wider uppercase px-3 py-1 rounded-full shadow-lg"
-                     >
-                       Package
-                     </motion.div>
-                   </motion.div>
-                 </FadeUp>
-                 <FadeUp delay={0.2}>
-                   <motion.div
-                     whileHover={{ scale: 1.05, rotate: -1 }}
-                     animate={{ y: [0, -8, 0] }}
-                     transition={{ 
-                       type: "spring", 
-                       stiffness: 300, 
-                       damping: 20,
-                       y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }
-                     }}
-                     className="rounded-2xl overflow-hidden aspect-[3/4] relative group"
-                   >
-                     <img 
-                       src={IMAGES.birthday2} 
-                       alt="Birthday celebration" 
-                       className="w-full h-full object-cover object-top transition-all duration-700 group-hover:brightness-110" 
-                       loading="lazy" 
-                     />
-                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                     <motion.div
-                       initial={{ opacity: 0, scale: 0.8 }}
-                       whileInView={{ opacity: 1, scale: 1 }}
-                       transition={{ duration: 0.5, delay: 0.4 }}
-                       className="absolute top-3 right-3 bg-[#B8860B] text-white text-[10px] font-['Montserrat'] font-semibold tracking-wider uppercase px-3 py-1 rounded-full shadow-lg"
-                     >
-                       Celebration
-                     </motion.div>
-                   </motion.div>
-                 </FadeUp>
-                </div>
+              {/* Birthday carousel */}
+              <FadeUp>
+                <ImageCarousel
+                  images={birthdayImages}
+                  alts={[
+                    "Birthday celebration at The Garage Cafe",
+                    "Birthday decorations and setup",
+                    "Cake and celebration",
+                    "Birthday party joy",
+                  ]}
+                  aspectRatio="aspect-[3/4]"
+                  autoPlayInterval={4000}
+                />
+              </FadeUp>
 
             {/* Package details */}
             <div className="space-y-6">
