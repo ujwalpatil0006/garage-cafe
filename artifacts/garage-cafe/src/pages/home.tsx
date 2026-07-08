@@ -200,10 +200,13 @@ export default function Home() {
                 Visit Us
               </button>
             </Link>
-            <a href="https://wa.me/919967850378?text=Hi%20The%20Garage%20Cafe%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener noreferrer">
-              <button className="border-2 border-[#B8860B]/60 hover:border-[#B8860B] text-[#B8860B] hover:bg-[#B8860B] hover:text-white font-['Montserrat'] font-semibold tracking-widest uppercase px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 text-sm backdrop-blur-sm">
-                Book a Table
-              </button>
+            <a
+              href="/reservation.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-[#B8860B]/50 bg-[#B8860B]/10 px-8 py-4 text-sm font-['Montserrat'] font-semibold uppercase tracking-[0.24em] text-[#F2D39A] transition-all duration-300 hover:bg-[#B8860B] hover:text-white hover:scale-105 backdrop-blur-sm"
+            >
+              Reserve Table
             </a>
           </motion.div>
         </div>

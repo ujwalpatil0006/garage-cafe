@@ -1,6 +1,26 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { IMAGES } from "@/lib/assets";
+import ImageCarousel from "@/components/ImageCarousel";
+
+import rideImg1 from "@assets/ride_sec_img/WhatsApp Image 2026-07-05 at 17.20.43.jpeg";
+import rideImg2 from "@assets/ride_sec_img/WhatsApp Image 2026-07-05 at 17.20.43 (1).jpeg";
+import rideImg3 from "@assets/ride_sec_img/WhatsApp Image 2026-07-05 at 17.20.44.jpeg";
+import rideImg4 from "@assets/ride_sec_img/WhatsApp Image 2026-07-05 at 17.20.45.jpeg";
+import rideImg5 from "@assets/ride_sec_img/WhatsApp Image 2026-07-05 at 17.20.45 (1).jpeg";
+import rideImg6 from "@assets/ride_sec_img/WhatsApp Image 2026-07-05 at 17.20.45 (2).jpeg";
+import rideImg7 from "@assets/ride_sec_img/WhatsApp Image 2026-07-05 at 17.20.45 (3).jpeg";
+import rideImg8 from "@assets/ride_sec_img/WhatsApp Image 2026-07-05 at 17.20.48.jpeg";
+import rideImg9 from "@assets/ride_sec_img/WhatsApp Image 2026-07-05 at 17.20.54.jpeg";
+import rideImg10 from "@assets/ride_sec_img/WhatsApp Image 2026-07-05 at 17.20.57.jpeg";
+import rideImg11 from "@assets/ride_sec_img/WhatsApp Image 2026-07-05 at 17.20.43 (2).jpeg";
+import rideImg12 from "@assets/ride_sec_img/WhatsApp Image 2026-07-05 at 17.20.44 (1).jpeg";
+
+const rideImages = [
+  rideImg1, rideImg2, rideImg3, rideImg4, rideImg5,
+  rideImg6, rideImg7, rideImg8, rideImg9, rideImg10,
+  rideImg11, rideImg12,
+];
 
 function FadeUp({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
@@ -141,11 +161,27 @@ export default function RidesPage() {
       {/* Booking Form */}
       <div className="py-20 px-4 bg-[#0d0d0d]">
         <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
-          {/* Left: photo + highlights */}
+          {/* Left: photo carousel + highlights */}
           <FadeUp>
-            <div className="rounded-2xl overflow-hidden aspect-[4/5] mb-6">
-              <img src={IMAGES.exteriorNight} alt="Garage Cafe at night" className="w-full h-full object-cover" loading="lazy" />
-            </div>
+            <ImageCarousel
+              images={rideImages}
+              alts={[
+                "Group ride on the road",
+                "Riders enjoying the journey",
+                "Motorcycle parked at scenic spot",
+                "Ride crew posing together",
+                "Bikes lined up for a ride",
+                "Evening ride vibes",
+                "Rider on a mountain road",
+                "Sunset ride",
+                "Riders at a cafe stop",
+                "Group photo after a ride",
+                "Morning ride scenery",
+                "Ride destination view",
+              ]}
+              aspectRatio="aspect-[4/5]"
+              autoPlayInterval={4000}
+            />
             <div className="space-y-3">
               {rideHighlights.map((h) => (
                 <div key={h} className="flex items-start gap-3 text-white/70 text-sm font-['Poppins']">
