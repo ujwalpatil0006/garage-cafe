@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { motion, useInView } from "framer-motion";
 import { IMAGES } from "@/lib/assets";
+import { ReservationForm } from "@/pages/reservation-form";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
@@ -218,6 +219,35 @@ export default function Home() {
           <span className="text-white/40 text-xs tracking-[0.3em] font-['Montserrat']">SCROLL</span>
           <div className="w-px h-10 bg-gradient-to-b from-[#B8860B] to-transparent animate-pulse" />
         </motion.div>
+      </section>
+
+      {/* ======= RESERVATION FORM ======= */}
+      <section className="py-24 px-4 bg-[#111111]">
+        <div className="max-w-2xl mx-auto">
+          <FadeUp className="text-center mb-12">
+            <span className="text-[#B8860B] font-['Montserrat'] font-semibold text-xs tracking-[0.4em] uppercase">Quick Booking</span>
+            <h2 className="font-['Bebas_Neue'] text-5xl sm:text-6xl text-white mt-3 tracking-wider">
+              RESERVE YOUR <span className="text-[#B8860B]">TABLE</span>
+            </h2>
+            <div className="w-20 h-0.5 bg-[#B8860B] mx-auto mt-4" />
+            <p className="text-white/50 mt-4 font-['Poppins'] text-sm">
+              Book your table directly from home
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={0.2}>
+            <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl shadow-black/50">
+              <div className="absolute inset-0 rounded-3xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#B8860B]/5 to-transparent" />
+                <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#B8860B]/10 rounded-full blur-3xl" />
+              </div>
+              <div className="absolute inset-0 rounded-3xl border border-white/5" />
+              <div className="relative">
+                <ReservationForm />
+              </div>
+            </div>
+          </FadeUp>
+        </div>
       </section>
 
       {/* ======= STATS BAR ======= */}

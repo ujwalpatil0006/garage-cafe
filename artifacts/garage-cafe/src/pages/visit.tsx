@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "wouter";
 import { motion, useInView } from "framer-motion";
 import { IMAGES } from "@/lib/assets";
 import ImageCarousel from "@/components/ImageCarousel";
@@ -312,11 +313,11 @@ export default function Visit() {
 
               {/* CTA */}
               <FadeUp delay={0.3}>
-                <a href="/reservation?request=Birthday" rel="noopener noreferrer">
+                <Link href="/reservation">
                   <button className="w-full bg-[#B8860B] hover:bg-[#8B6A0B] text-white font-['Montserrat'] font-semibold tracking-widest uppercase py-4 rounded-full transition-all hover:shadow-lg hover:shadow-[#B8860B]/30 hover:scale-105 text-sm">
                     Reserve Birthday Table
                   </button>
-                </a>
+                </Link>
               </FadeUp>
             </div>
           </div>
