@@ -11,6 +11,7 @@ import Menu from "@/pages/menu";
 import About from "@/pages/about";
 import Visit from "@/pages/visit";
 import Rides from "@/pages/rides";
+import Reservation from "@/pages/reservation";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/visit" component={Visit} />
         <Route path="/rides" component={Rides} />
+        <Route path="/reservation" component={Reservation} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

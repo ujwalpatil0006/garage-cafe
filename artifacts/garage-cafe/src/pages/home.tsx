@@ -200,13 +200,11 @@ export default function Home() {
                 Visit Us
               </button>
             </Link>
-            <a
-              href="reservation.html"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-[#B8860B]/50 bg-[#B8860B]/10 px-8 py-4 text-sm font-['Montserrat'] font-semibold uppercase tracking-[0.24em] text-[#F2D39A] transition-all duration-300 hover:bg-[#B8860B] hover:text-white hover:scale-105 backdrop-blur-sm"
-            >
-              Reserve Table
-            </a>
+            <Link href="/reservation">
+              <button className="rounded-full border border-[#B8860B]/50 bg-[#B8860B]/10 px-8 py-4 text-sm font-['Montserrat'] font-semibold uppercase tracking-[0.24em] text-[#F2D39A] transition-all duration-300 hover:bg-[#B8860B] hover:text-white hover:scale-105 backdrop-blur-sm">
+                Reserve Table
+              </button>
+            </Link>
           </motion.div>
         </div>
 
